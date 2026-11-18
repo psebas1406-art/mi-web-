@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="es-CO" data-type="software">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neider Peña · Desarrollo web y software a la medida en Colombia</title>
+  <meta name="description" content="Neider Sebastián Peña González, desarrollador de software y web en Colombia. Sitios web, aplicaciones a la medida, bases de datos MySQL y MongoDB, e inteligencia artificial aplicada.">
+  <meta name="page-type" content="software">
+  <meta name="site-kind" content="software">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Neider Peña · Desarrollo web y software a la medida">
+  <meta property="og:description" content="Sitios web, aplicaciones a la medida, bases de datos e IA aplicada, de principio a fin.">
+  <meta property="og:url" content="{{site.dominio}}/">
+  <meta property="og:image" content="{{site.dominio}}/assets/share.svg">
+  <link rel="canonical" href="{{site.dominio}}/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/Oswald.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/media/neider-saludo.mp4" as="video" type="video/mp4">
+  <link rel="stylesheet" href="/css/site.css">
+  <script src="/assets/vendor/lenis.min.js" defer></script>
+  <script src="/js/consent.js" defer></script>
+  <script src="/js/fx.js" defer></script>
+  <script src="/js/site.js" defer></script>
+</head>
+<body>
+<!--
+  Estilo: negro total con estrellas, tipografía condensada gigante (Oswald), scroll suave.
+  Escena WebGL fija (js/fx.js): el video del saludo se desintegra en partículas, que forman "</>"
+  en Servicios y se reagrupan como la foto en "Sobre mí". Imágenes: avatares propios de Neider.
+-->
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<canvas class="fx" id="fx" aria-hidden="true"></canvas>
+<div class="cursor" aria-hidden="true"><i></i></div>
+
+<header class="nav" id="top">
+  <div class="wrap nav__in">
+    <span class="nav__spacer" aria-hidden="true"></span>
+    <a class="nav__name" href="#inicio" aria-label="Neider Sebastián Peña González, ir al inicio">Neider Sebastián Peña González</a>
+    <div class="nav__right">
+      <a class="nav__talk" href="#contacto">Hablemos</a>
+      <span class="nav__lang" aria-label="Idioma: español">ES</span>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="menu" id="menu" hidden>
+  <nav class="wrap menu__in" aria-label="Principal">
+    <a href="#quien-soy" style="--i:0"><small>01</small>Quién soy</a>
+    <a href="#servicios" style="--i:1"><small>02</small>Servicios</a>
+    <a href="#stack" style="--i:2"><small>03</small>Tecnologías</a>
+    <a href="#sobre-mi" style="--i:3"><small>04</small>Sobre mí</a>
+    <a href="#planes" style="--i:4"><small>05</small>Planes</a>
+    <a href="#contacto" style="--i:5"><small>06</small>Contacto</a>
+  </nav>
+  <p class="wrap menu__foot"><a class="link" href="mailto:{{owner.email}}">{{owner.email}}</a></p>
+</div>
+
+<main id="main">
+
+  <!-- 1. HERO: video del saludo que se desintegra con el scroll -->
+  <section class="hero" id="inicio" aria-labelledby="hero-t">
+    <div class="hero__pin">
+      <p class="hero__name" aria-hidden="true" data-hero-out>NEIDER</p>
+      <div class="hero__slot" data-fx="video">
+        <video class="hero__video" id="heroVideo" src="/assets/media/neider-saludo.mp4" muted loop playsinline autoplay preload="auto" aria-label="Avatar 3D de Neider saludando"></video>
+      </div>
+      <div class="wrap hero__ui">
+        <div class="hero__copy" data-hero-out>
+          <p class="eyebrow">Hola, soy Neider Peña</p>
+          <h1 id="hero-t"><span class="ln">Desarrollo webs</span> <span class="ln">y software</span> <span class="ln ln--thin">a la medida</span></h1>
+          <a class="btn btn--primary btn--lg" href="#contacto">Cotizar mi proyecto <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+        <p class="hero__statement" data-hero-in>Convierto ideas en <b>sitios</b> y <b>aplicaciones</b> que tus clientes <b>quieren usar</b>.</p>
+        <div class="hero__scroll" data-hero-out aria-hidden="true"><span>Desliza</span><i></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. QUIÉN SOY -->
+  <section class="sec manifesto" id="quien-soy" aria-labelledby="qs-t">
+    <div class="wrap layer">
+      <h2 class="giant" id="qs-t" data-split>Desarrollador</h2>
+      <div class="manifesto__body">
+        <p class="manifesto__text" data-split>Creo que el <b>código limpio</b>, el <b>buen diseño</b> y la <b>estrategia</b> son la clave para que tu negocio conecte con sus clientes. Construyo sitios y aplicaciones que se ven bien, cargan rápido y puedes mantener.</p>
+        <ul class="facts" data-split-list>
+          <li><b>Front-end</b><span>HTML, CSS, JavaScript, React</span></li>
+          <li><b>Back-end</b><span>Node.js, PHP, Python</span></li>
+          <li><b>Datos</b><span>MySQL, MongoDB, PostgreSQL</span></li>
+          <li><b>IA y ofimática</b><span>Modelos de lenguaje, Excel, Sheets</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SERVICIOS: las partículas forman </> -->
+  <section class="sec expertise" id="servicios" aria-labelledby="serv-t">
+    <div class="drift layer" data-drift="-1" aria-hidden="true"><span>Área de <em>experiencia</em> · Área de <em>experiencia</em> ·</span></div>
+    <div class="wrap layer expertise__grid">
+      <div>
+        <p class="eyebrow">Servicios</p>
+        <h2 id="serv-t" class="title" data-split>Lo que construyo para tu negocio</h2>
+        <ol class="services">
+          <li><span class="services__n">01</span><div><h3>Sitios web y landing pages</h3><p>Rápidos, adaptados a celular y listos para Google, con formulario, aviso de cookies y documentos legales.</p></div></li>
+          <li><span class="services__n">02</span><div><h3>Aplicaciones a la medida</h3><p>Paneles, inventarios, reservas o facturación interna, con usuarios, roles y permisos.</p></div></li>
+          <li><span class="services__n">03</span><div><h3>Bases de datos</h3><p>Diseño, migración y optimización en MySQL, PostgreSQL y MongoDB: consultas lentas, respaldos e informes.</p></div></li>
+          <li><span class="services__n">04</span><div><h3>Inteligencia artificial</h3><p>Asistentes que responden con la información de tu empresa, clasificación de documentos y automatizaciones.</p></div></li>
+          <li><span class="services__n">05</span><div><h3>Automatización y ofimática</h3><p>Hojas de cálculo que se llenan solas, reportes en Excel o Google Sheets y conexión entre tus herramientas.</p></div></li>
+          <li><span class="services__n">06</span><div><h3>Mantenimiento y soporte</h3><p>Actualizaciones, copias de seguridad, corrección de errores y mejoras mes a mes.</p></div></li>
+        </ol>
+      </div>
+      <div class="expertise__code" data-fx="code" aria-hidden="true"><span class="code-fallback">&lt;/&gt;</span></div>
+    </div>
+    <div class="wrap layer">
+      <p class="highlight" data-highlight>Trabajo de forma <b>remota</b> con empresas y emprendedores de toda Colombia, en proyectos <b>escalables</b> que crecen contigo y se ajustan a lo que cada negocio necesita.</p>
+    </div>
+  </section>
+
+  <!-- 4. TECNOLOGÍAS: filas gigantes que se deslizan -->
+  <section class="sec stack" id="stack" aria-labelledby="stack-t">
+    <div class="wrap layer"><p class="eyebrow" id="stack-t">Tecnologías que uso a diario</p></div>
+    <div class="rows layer">
+      <ul class="row" data-drift="1">
+        <li><b>JavaScript</b><span><img src="/assets/icons/javascript.svg" alt="" width="18" height="18">Lenguaje · Front-end</span></li>
+        <li class="o"><b>MySQL</b><span><img src="/assets/icons/mysql.svg" alt="" width="18" height="18">Base de datos</span></li>
+        <li><b>React</b><span><img src="/assets/icons/react.svg" alt="" width="18" height="18">Interfaces</span></li>
+        <li class="o"><b>Node.js</b><span><img src="/assets/icons/nodejs.svg" alt="" width="18" height="18">Servidor y API</span></li>
+        <li><b>HTML</b><span><img src="/assets/icons/html.svg" alt="" width="18" height="18">Estructura</span></li>
+      </ul>
+      <ul class="row" data-drift="-1">
+        <li class="o"><b>MongoDB</b><span><img src="/assets/icons/mongodb.svg" alt="" width="18" height="18">Base de datos</span></li>
+        <li><b>Python</b><span><img src="/assets/icons/python.svg" alt="" width="18" height="18">Back-end · IA</span></li>
+        <li class="o"><b>CSS</b><span><img src="/assets/icons/css.svg" alt="" width="18" height="18">Diseño y animación</span></li>
+        <li><b>PHP</b><span><img src="/assets/icons/php.svg" alt="" width="18" height="18">Back-end</span></li>
+        <li class="o"><b>TypeScript</b><span><img src="/assets/icons/typescript.svg" alt="" width="18" height="18">Lenguaje</span></li>
+      </ul>
+      <ul class="row" data-drift="1">
+        <li><b>PostgreSQL</b><span><img src="/assets/icons/postgres.svg" alt="" width="18" height="18">Base de datos</span></li>
+        <li class="o"><b>OpenAI</b><span><img class="inv" src="/assets/icons/openai.svg" alt="" width="18" height="18">Inteligencia artificial</span></li>
+        <li><b>Claude</b><span><img src="/assets/icons/claude.svg" alt="" width="18" height="18">Inteligencia artificial</span></li>
+        <li class="o"><b>Git</b><span><img src="/assets/icons/git.svg" alt="" width="18" height="18">Control de versiones</span></li>
+        <li><b>Sheets</b><span><img src="/assets/icons/google-sheets.svg" alt="" width="18" height="18">Ofimática</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. PROCESO -->
+  <section class="sec process" id="proceso" aria-labelledby="proc-t">
+    <div class="wrap layer">
+      <p class="eyebrow">Proceso</p>
+      <h2 id="proc-t" class="title" data-split>Cómo trabajo, en cuatro pasos</h2>
+      <ol class="steps">
+        <li><span class="steps__n">01</span><h3>Conversación</h3><p>Entiendo tu objetivo y el alcance. Recibes una cotización escrita con tiempos y entregables.</p></li>
+        <li><span class="steps__n">02</span><h3>Diseño</h3><p>Ves un prototipo navegable y lo ajustamos antes de escribir la primera línea de código.</p></li>
+        <li><span class="steps__n">03</span><h3>Desarrollo</h3><p>Construyo por etapas y revisas cada avance en un enlace de prueba.</p></li>
+        <li><span class="steps__n">04</span><h3>Lanzamiento</h3><p>Publico en tu dominio, te entrego accesos y código, y te explico cómo administrarlo.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 6. SOBRE MÍ: las partículas se reagrupan como la foto -->
+  <section class="sec about" id="sobre-mi" aria-labelledby="about-t">
+    <div class="wrap layer about__grid">
+      <div class="about__slot" data-fx="photo">
+        <img src="/assets/media/neider-avatar.jpg" alt="Avatar 3D de Neider Sebastián Peña González sonriendo, con gorro negro y chaqueta negra" width="768" height="1376" loading="lazy">
+      </div>
+      <div class="about__copy">
+        <p class="eyebrow">Sobre mí</p>
+        <h2 id="about-t" class="about__name" data-split><span>Neider Sebastián</span> <span class="thin">Peña González</span></h2>
+        <p class="highlight highlight--sm" data-highlight>Soy <b>programador de software</b> y <b>desarrollador web</b>. Trabajo con lenguajes de programación, CSS, bases de datos y gestores como <b>MySQL</b> y <b>MongoDB</b>, herramientas de ofimática e <b>inteligencia artificial</b>.</p>
+        <p class="about__p">Me importa que tu proyecto funcione hoy y que se pueda mantener mañana: código ordenado, documentado y tuyo. Hablas directamente con quien lo programa, sin intermediarios.</p>
+        <div class="about__links">
+          <a class="btn btn--primary" href="#contacto">Trabajemos juntos <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="link" href="mailto:{{owner.email}}">{{owner.email}}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. PLANES -->
+  <section class="sec plans-sec" id="planes" aria-labelledby="plan-t">
+    <div class="wrap layer">
+      <p class="eyebrow">Planes</p>
+      <h2 id="plan-t" class="title" data-split>Planes según el tamaño de tu proyecto</h2>
+      <div class="plans">
+        <article class="plan">
+          <h3>Landing page</h3>
+          <p class="plan__price" data-precio="{{precios.landing}}" data-nota="{{precios.nota}}"></p>
+          <p class="plan__for">Para lanzar un producto, un servicio o una campaña.</p>
+          <ul>
+            <li>Una página con varias secciones</li>
+            <li>Formulario con registro de autorizaciones</li>
+            <li>Aviso de cookies y documentos legales</li>
+            <li>Adaptada a celular y lista para Google</li>
+          </ul>
+          <a class="btn btn--ghost" href="#contacto" data-servicio="Landing page">Cotizar landing page</a>
+        </article>
+        <article class="plan plan--main">
+          <span class="plan__badge">El más pedido</span>
+          <h3>Sitio corporativo</h3>
+          <p class="plan__price" data-precio="{{precios.corporativo}}" data-nota="{{precios.nota}}"></p>
+          <p class="plan__for">Para empresas que necesitan presencia completa.</p>
+          <ul>
+            <li>Varias páginas: inicio, servicios, nosotros, blog</li>
+            <li>Panel para editar contenidos</li>
+            <li>Formularios conectados a tu correo</li>
+            <li>Analítica con consentimiento de cookies</li>
+          </ul>
+          <a class="btn btn--primary" href="#contacto" data-servicio="Sitio corporativo">Cotizar sitio corporativo</a>
+        </article>
+        <article class="plan">
+          <h3>Aplicación a la medida</h3>
+          <p class="plan__price" data-precio="{{precios.app}}" data-nota="{{precios.nota}}"></p>
+          <p class="plan__for">Para procesos internos o productos digitales.</p>
+          <ul>
+            <li>Usuarios, roles y permisos</li>
+            <li>Base de datos MySQL o MongoDB</li>
+            <li>Panel de administración e informes</li>
+            <li>Integraciones con pagos, correo o IA</li>
+          </ul>
+          <a class="btn btn--ghost" href="#contacto" data-servicio="Aplicación a la medida">Cotizar aplicación</a>
+        </article>
+      </div>
+      <p class="fineprint">El precio final se confirma en una cotización escrita e incluye los impuestos que apliquen. Lee la <a href="/legal/reembolsos.html">política de reembolsos y retracto</a>.</p>
+    </div>
+  </section>
+
+  <!-- 8. CONTACTO -->
+  <section class="sec contact-sec" id="contacto" aria-labelledby="ct-t">
+    <div class="drift layer" data-drift="1" aria-hidden="true"><span>Hablemos · <em>Hablemos</em> · Hablemos · <em>Hablemos</em> ·</span></div>
+    <div class="wrap layer contact">
+      <div class="contact__copy">
+        <p class="eyebrow">Contacto</p>
+        <h2 id="ct-t" class="title" data-split>Cuéntame tu proyecto</h2>
+        <p>Solo te pido lo necesario para responderte: tu nombre, tu correo y una descripción. El teléfono es opcional.</p>
+        <dl class="contact__info">
+          <div><dt>Correo</dt><dd><a class="link" href="mailto:{{owner.email}}">{{owner.email}}</a></dd></div>
+          <div class="wa" data-wa="{{owner.whatsapp}}"><dt>WhatsApp</dt><dd><a class="link" href="#" rel="noopener" target="_blank">Escribir por WhatsApp</a></dd></div>
+          <div><dt>Ubicación</dt><dd>Colombia · trabajo remoto</dd></div>
+        </dl>
+      </div>
+
+      <form class="form" id="contactForm" novalidate>
+        <div class="field">
+          <label for="f-nombre">Nombre</label>
+          <input id="f-nombre" name="nombre" autocomplete="name" required maxlength="80">
+          <p class="field__err" id="e-nombre"></p>
+        </div>
+        <div class="field">
+          <label for="f-email">Correo electrónico</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required maxlength="120">
+          <p class="field__err" id="e-email"></p>
+        </div>
+        <div class="field">
+          <label for="f-telefono">Teléfono <span class="opt">(opcional)</span></label>
+          <input id="f-telefono" name="telefono" type="tel" autocomplete="tel" maxlength="30">
+          <p class="field__err" id="e-telefono"></p>
+        </div>
+        <div class="field">
+          <label for="f-servicio">¿Qué necesitas?</label>
+          <select id="f-servicio" name="servicio">
+            <option>Landing page</option>
+            <option>Sitio corporativo</option>
+            <option>Aplicación a la medida</option>
+            <option>Base de datos</option>
+            <option>Inteligencia artificial</option>
+            <option>Automatización u ofimática</option>
+            <option>Mantenimiento</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="field field--full">
+          <label for="f-mensaje">Describe tu proyecto</label>
+          <textarea id="f-mensaje" name="mensaje" rows="4" required maxlength="2000"></textarea>
+          <p class="field__err" id="e-mensaje"></p>
+        </div>
+        <!-- Trampa para robots: las personas no ven este campo -->
+        <div class="hp" aria-hidden="true"><label for="f-web">No llenar</label><input id="f-web" name="sitio_web" tabindex="-1" autocomplete="off"></div>
+
+        <fieldset class="consents field--full">
+          <legend>Autorizaciones</legend>
+          <div class="check">
+            <input type="checkbox" id="c-terminos" name="terminos">
+            <label for="c-terminos">Soy mayor de edad, he leído y acepto los Términos y condiciones.</label>
+            <a class="check__doc" href="/legal/terminos.html" target="_blank" rel="noopener">Leer términos</a>
+            <p class="field__err" id="e-terminos"></p>
+          </div>
+          <div class="check">
+            <input type="checkbox" id="c-privacidad" name="privacidad">
+            <label for="c-privacidad">Autorizo de manera previa, expresa e informada el tratamiento de mis datos personales para responder mi solicitud, según la Política de tratamiento de datos personales.</label>
+            <a class="check__doc" href="/legal/privacidad.html" target="_blank" rel="noopener">Leer política</a>
+            <p class="field__err" id="e-privacidad"></p>
+          </div>
+          <div class="check">
+            <input type="checkbox" id="c-comercial" name="comercial">
+            <label for="c-comercial">Quiero recibir por correo novedades y ofertas de servicios. (Opcional)</label>
+            <a class="check__doc" href="/legal/privacidad.html#finalidades" target="_blank" rel="noopener">Ver finalidades</a>
+          </div>
+        </fieldset>
+
+        <p class="notice field--full">
+          <b>Aviso de privacidad.</b> El responsable de tus datos es {{owner.nombre}}. Los uso para responder tu solicitud y, si lo marcas, para enviarte ofertas. Puedes conocer, actualizar, rectificar y suprimir tus datos, o revocar esta autorización, escribiendo a <a class="link" href="mailto:{{owner.emailDatos}}">{{owner.emailDatos}}</a> o desde el <a class="link" href="/legal/privacidad.html#derechos">formulario de derechos</a>. Las preguntas sobre datos sensibles o de menores son de respuesta facultativa.
+        </p>
+
+        <div class="form__foot field--full">
+          <button class="btn btn--primary btn--lg" type="submit" id="sendBtn">Enviar solicitud <span class="arrow" aria-hidden="true">→</span></button>
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer layer">
+  <div class="wrap">
+    <p class="footer__giant" aria-hidden="true">Neider <em>Peña</em></p>
+    <div class="footer__in">
+      <div class="footer__brand">
+        <p class="footer__big">Construyamos tu próximo proyecto.</p>
+        <a class="btn btn--primary" href="#contacto">Cotizar proyecto</a>
+      </div>
+      <nav class="footer__cols" aria-label="Pie de página">
+        <div>
+          <h3>Sitio</h3>
+          <a href="#servicios">Servicios</a>
+          <a href="#stack">Tecnologías</a>
+          <a href="#planes">Planes</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+        <div>
+          <h3>Legal</h3>
+          <a href="/legal/terminos.html">Términos y condiciones</a>
+          <a href="/legal/privacidad.html">Política de tratamiento de datos</a>
+          <a href="/legal/cookies.html">Política de cookies</a>
+          <a href="/legal/reembolsos.html">Reembolsos y retracto</a>
+        </div>
+        <div>
+          <h3>Tus datos</h3>
+          <button type="button" class="linkbtn" data-open-cookies>Configurar cookies</button>
+          <a href="/legal/privacidad.html#derechos">Ejercer mis derechos</a>
+          <a href="https://www.sic.gov.co" target="_blank" rel="noopener">Superintendencia de Industria y Comercio</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="wrap footer__legal">
+    <p>© {{year}} {{owner.nombre}} · {{owner.documento}} · Colombia</p>
+    <p>Avatares 3D propios. Íconos de tecnologías: gilbarbara/logos (CC0) y Roberto Huertas (MIT); las marcas pertenecen a sus dueños. Fuentes: Oswald, Space Grotesk y JetBrains Mono (SIL OFL). Scroll suave: Lenis (MIT).</p>
+  </div>
+</footer>
+</body>
+</html>
